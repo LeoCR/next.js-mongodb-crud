@@ -55,7 +55,7 @@ Open [http://localhost:3011](http://localhost:3011) with your browser to see the
 
 # REST API
 
-This project has CRUD Operations using MongoDB from a REST API, allowing you persist data.
+This project has CRUD Operations using MongoDB.
 
 ## Endpoints
 
@@ -67,25 +67,25 @@ This endpoint return all the posts saved in the MongoDB.
 ```json
 [
     {
-      _id: "64a6214642876325f7510f1b",
-      title: "How to use GraphQL with Next.js",
-      content: "In order to use GraphQL with Next.js you will need to install some node packages modules such as mongodb",
-      image_url: "https://s.pstatic.net/static/www/u/2014/0328/mma_204243574.png",
-      description: "GraphQL CRUD with Next.js",
-      user_id: "64a61e5142876325f7510f16",
-      category: {
-        name: "Backend"
+      "_id": "64a6214642876325f7510f1b",
+      "title": "How to use GraphQL with Next.js",
+      "content": "In order to use GraphQL with Next.js you will need to install some node packages modules such as mongodb",
+      "image_url": "https://s.pstatic.net/static/www/u/2014/0328/mma_204243574.png",
+      "description": "GraphQL CRUD with Next.js",
+      "user_id": "64a61e5142876325f7510f16",
+      "category": {
+        "name": "Backend"
       },
     },
     {
-      _id: "64a6219a42876325f7510f1d",
-      title: "How to use MongoDB with Next.js",
-      content: "In order to use MongoDB with Next.js you will need to install some node packages modules such as mongodb",
-      image_url: "https://s.pstatic.net/static/www/u/2014/0328/mma_204243574.png",
-      description: "MongoDB CRUD with Next.js",
-      user_id: "64a61e5142876325f7510f16",
-      category: {
-        name: "Full stack"
+      "_id": "64a6219a42876325f7510f1d",
+      "title": "How to use MongoDB with Next.js",
+      "content": "In order to use MongoDB with Next.js you will need to install some node packages modules such as mongodb",
+      "image_url": "https://s.pstatic.net/static/www/u/2014/0328/mma_204243574.png",
+      "description": "MongoDB CRUD with Next.js",
+      "user_id": "64a61e5142876325f7510f16",
+      "category": {
+        "name": "Full stack"
       },
     }
 ]
@@ -141,14 +141,14 @@ This endpoint return one post by Post ID saved in the MongoDB.
 
 ```json
 {
-      _id: "64a6219a42876325f7510f1d",
-      title: "How to use MongoDB with Next.js",
-      content: "In order to use MongoDB with Next.js you will need to install some node packages modules such as mongodb",
-      image_url: "https://s.pstatic.net/static/www/u/2014/0328/mma_204243574.png",
-      description: "MongoDB CRUD with Next.js",
-      user_id: "64a61e5142876325f7510f16",
-      category: {
-        name: "Backend"
+      "_id": "64a6219a42876325f7510f1d",
+      "title": "How to use MongoDB with Next.js",
+      "content": "In order to use MongoDB with Next.js you will need to install some node packages modules such as mongodb",
+      "image_url": "https://s.pstatic.net/static/www/u/2014/0328/mma_204243574.png",
+      "description": "MongoDB CRUD with Next.js",
+      "user_id": "64a61e5142876325f7510f16",
+      "category": {
+        "name": "Backend"
       },
 }
 ```
