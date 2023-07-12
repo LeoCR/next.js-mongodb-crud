@@ -1,0 +1,37 @@
+use("users_posts_db")
+
+db.createCollection('users', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['email', 'name', 'last_name','password'],
+            additionalProperties:false,
+            properties: {
+                _id: {
+                  bsonType: 'objectId'
+                },
+                name: {
+                    bsonType: 'string',
+                    pattern:'[a-zA-Z ]{3,}$'
+                },
+                last_name: {
+                    bsonType: 'string',
+                    pattern:'[a-zA-Z ]{3,}$'
+                },
+                avatar: {
+                    bsonType: 'string',
+                    pattern: 'https:\/\/[a-zA-Z0-9\-\.\]+[~!@#$%^&*()_+.\/]{0,}\.[a-zA-Z0-9]{2,5}'
+                },
+                email: {
+                    bsonType: 'string',
+                    pattern: '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+                },
+                password: {
+                    bsonType: 'string',
+                    pattern: '^(?=.*?[A-Z]{3,6})(?=.*?[a-z]{4,8})(?=.*?[0-9]{4,5})(?=.*?[#?!@$%^&*-]).{8,20}'
+                },
+            }
+        }
+    },
+    
+})

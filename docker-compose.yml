@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: user-posts-db-container
+    env_file: .env
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    command: mongod --port ${DB_PORT}
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
+      - MONGO_INITDB_DATABASE=${DB_NAME}
+      - MONGO_REPLICA_HOST=${DB_HOST}
+      - MONGO_REPLICA_PORT=${DB_PORT}
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - user-posts-app-network
+  app:
+    image: user-posts-api
+    env_file: .env
+    depends_on:
+      - mongodb
+    build: .
+    restart: always
+    container_name: user-mongo-posts-api-container
+    environment:
+        DB_HOST: user-posts-db-container
+    links:
+      - "mongodb:database"
+    command: npm run dev
+    ports:
+      - ${PORT}:${PORT}
+    networks:
+      - user-posts-app-network
+volumes:
+  mongo_data:
+networks:
+  user-posts-app-network:
+    driver: bridge

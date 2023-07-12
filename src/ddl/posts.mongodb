@@ -1,0 +1,56 @@
+use("users_posts_db")
+
+db.createCollection('posts', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['title', 'content', 'image_url','description','user_id','category','tags'],
+            additionalProperties:false,
+            properties: {
+                _id: {
+                  bsonType: 'objectId'
+                },
+                user_id:{
+                  bsonType: 'objectId'
+                },
+                title: {
+                    bsonType: 'string',
+                    pattern:'[a-zA-Z ]{4,}[~!@#$%^&*()_+.]{0,}[a-zA-Z ]{0,}$'
+                },
+                category:{
+                    bsonType: 'object',
+                    required: ['name'],
+                    properties: {
+                      name: {
+                          bsonType: 'string'
+                      },
+                      image: {
+                          bsonType: 'string'
+                      }
+                    }
+                },
+                tags:{
+                    bsonType: 'array',
+                    uniqueItems:true,
+                    minItems:1,
+                    items:{
+                      bsonType: 'string'
+                    }
+                },
+                content: {
+                    bsonType: 'string',
+                    pattern:'[a-zA-Z ]{8,}[~!@#$%^&*()_+.]{0,}[a-zA-Z ]{0,}$'
+                },
+                image_url: {
+                    bsonType: 'string',
+                    pattern: 'https:\/\/[a-zA-Z0-9\-\.\]+[~!@#$%^&*()_+.\/]{0,}\.[a-zA-Z0-9]{2,5}'
+                },
+                description: {
+                    bsonType: 'string',
+                    pattern: '[a-zA-Z ]{8,}[~!@#$%^&*()_+.]{0,}[a-zA-Z ]{0,}$'
+                },
+            }
+        }
+    },
+    
+})
